@@ -1,7 +1,14 @@
 module.exports = {
-  mode: "jit",
-  purge: {
-    enabled: true,
-    content: ["./src/**/*.{html,ts}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
+    },
   },
+  plugins: [],
 };

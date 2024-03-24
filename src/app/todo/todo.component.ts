@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-todo',
@@ -7,12 +6,12 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent {
-  newTodo = '';
   todos: string[] = [];
+  newTodo: string = '';
 
   addTodo() {
-    if (this.newTodo.trim()) {
-      this.todos.push(this.newTodo.trim());
+    if (this.newTodo.trim().length > 0) {
+      this.todos.push(this.newTodo);
       this.newTodo = '';
     }
   }

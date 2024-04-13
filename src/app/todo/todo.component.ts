@@ -1,19 +1,24 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-todo',
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent {
-  newTodo: string = '';
-  todos: string[] = [];
+  todoItem = new FormControl('', Validators.required);
+  todoList: string[] = [];
 
-  addTodo() {
-    if (this.newTodo.trim() !== '') {
-      this.todos.push(this.newTodo.trim());
-      this.newTodo = '';
+  pushItemToList() {
+    const todoItemValue = this.todoItem.value;
+
+    if (todoItemValue && todoItemValue.trim() !== '') {
+      this.todoList.push(todoItemValue);
+      this.todoItem.reset();
     }
   }
 }

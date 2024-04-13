@@ -6,7 +6,7 @@
     <h2 class="text-2xl font-bold mb-4 text-center text-gray-900">
       Get Things Done
     </h2>
-    <form (ngSubmit)="addTodo()" class="flex mb-4">
+    <form (submit)="addTodo()" class="flex mb-4">
       <input
         class="border border-gray-300 rounded-l-md p-2 w-full text-gray-900"
         type="text"
@@ -16,9 +16,9 @@
         required
       />
       <div class="ml-2">
-        <a
+        <button
+          type="submit"
           class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-700 rounded-lg group"
-          (click)="addTodo()"
         >
           <span
             class="absolute w-0 h-0 transition-all duration-500 ease-out bg-rose-500 rounded-full group-hover:w-56 group-hover:h-56"
@@ -27,7 +27,7 @@
             class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"
           ></span>
           <span class="relative">Add</span>
-        </a>
+        </button>
       </div>
     </form>
     <ul class="flex flex-col items-center">

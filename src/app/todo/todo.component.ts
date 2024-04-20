@@ -15,12 +15,13 @@ export class TodoComponent {
   todoList: string[] = [];
 
   async pushItemToList() {
-    const todoItem = this.todoItem.value;
+    const itemName = this.todoItem.value;
+    console.log(itemName);
     try {
-      const response = await axios.post('http://localhost:3000/todo', {
-    itemName: todoItem,
+      const response = await axios.post(`http://localhost:3000/todo`, {
+        itemName,
       });
-      this.todoList.push(response.data);
+      this.todoList.push(response.data.itemName); // Assuming the server response contains the itemName
       this.todoItem.reset();
     } catch (error) {
       console.log('Error', error);

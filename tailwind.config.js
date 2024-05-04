@@ -1,7 +1,29 @@
 module.exports = {
-  mode: "jit",
-  purge: {
-    enabled: true,
-    content: ["./src/**/*.{html,ts}"],
+  content: ["./src/**/*.{html,ts}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
+      colors: {
+        text: "#ede8ed",
+        background: "#0F0E0F",
+        primary: "#83688D",
+        primaryshade: "9E81A8",
+        secondary: "#503A45",
+        accent: "#72555B",
+        shade: "131113",
+        shade2: "2F262F",
+        error: "EC5858",
+      },
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+      },
+    },
   },
+  plugins: [],
+  mode: "jit",
 };

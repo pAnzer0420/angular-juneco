@@ -1,0 +1,171 @@
+<div
+  class="flex justify-center items-center min-h-screen bg-background relative"
+>
+  <svg
+    class="absolute inset-0 w-full h-full opacity-45 sm:mx-auto"
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.dev/svgjs"
+    viewBox="0 0 800 800"
+  >
+    <defs>
+      <radialGradient id="cccircular-grad" r="50%" cx="50%" cy="50%">
+        <stop offset="0%" stop-color="#714f7c" stop-opacity="0.5"></stop>
+        <stop
+          offset="50%"
+          stop-color="hsl(285, 22%, 58%)"
+          stop-opacity="0.5"
+        ></stop>
+        <stop offset="100%" stop-color="#d2abdd" stop-opacity="0.5"></stop>
+      </radialGradient>
+    </defs>
+    <g fill="url(#cccircular-grad)">
+      <circle r="532" cx="400" cy="400" opacity="0.05"></circle>
+      <circle r="504" cx="400" cy="400" opacity="0.1"></circle>
+      <circle r="476" cx="400" cy="400" opacity="0.16"></circle>
+      <circle r="448" cx="400" cy="400" opacity="0.21"></circle>
+      <circle r="420" cx="400" cy="400" opacity="0.26"></circle>
+      <circle r="392" cx="400" cy="400" opacity="0.31"></circle>
+      <circle r="364" cx="400" cy="400" opacity="0.37"></circle>
+      <circle r="336" cx="400" cy="400" opacity="0.42"></circle>
+      <circle r="308" cx="400" cy="400" opacity="0.47"></circle>
+      <circle r="280" cx="400" cy="400" opacity="0.53"></circle>
+      <circle r="252" cx="400" cy="400" opacity="0.58"></circle>
+      <circle r="224" cx="400" cy="400" opacity="0.63"></circle>
+      <circle r="196" cx="400" cy="400" opacity="0.68"></circle>
+      <circle r="168" cx="400" cy="400" opacity="0.74"></circle>
+      <circle r="140" cx="400" cy="400" opacity="0.79"></circle>
+      <circle r="112" cx="400" cy="400" opacity="0.84"></circle>
+      <circle r="84" cx="400" cy="400" opacity="0.89"></circle>
+      <circle r="56" cx="400" cy="400" opacity="0.95"></circle>
+    </g>
+  </svg>
+  <div
+    class="bg-shade rounded-3xl shadow-white shadow-lg py-10 mb-70 px-10 sticky"
+    style="font-family: 'Poppins', sans-serif; height: 90vh"
+  >
+    <h2
+      class="text-2xl font-bold mb-4 text-center bg-text bg-clip-text text-transparent"
+    >
+      Get Things Done
+    </h2>
+
+    <div class="flex mb-3">
+      <input
+        type="text"
+        name="newItem"
+        id="newItem"
+        placeholder="What's on your agenda?"
+        [(ngModel)]="newItem"
+        class="border border-gray-300 rounded-l-md p-2 w-full text-gray-900 text-sm bg-text"
+      />
+      <button
+        (click)="addItem()"
+        class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden tracking-tighter text-white bg-gray-700 rounded-r-md group"
+      >
+        <span
+          class="absolute w-0 h-0 transition-all duration-500 ease-out bg-rose-500 rounded-full group-hover:w-56 group-hover:h-56"
+        ></span>
+        <span
+          class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"
+        ></span>
+        <span class="relative">Add</span>
+      </button>
+    </div>
+
+    <ul class="flex flex-col items-center">
+      <li
+        *ngFor="let item of temporaryList; let i = index; let first = first"
+        class="p-3 -m-1 mb-1 w-full text-text flex items-center"
+        [ngStyle]="{
+          'border-top':
+            !first && temporaryList.length > 1 ? '1px solid #d1d5db' : 'none'
+        }"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="w-4 h-4 mr-2 text-text"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.960-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        {{ item }}
+        <button (click)="removeItem(i)" class="ml-auto">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-4 h-4 text-rose-500"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </li>
+    </ul>
+
+    <a
+      href="#_"
+      (click)="saveList()"
+      class="px-5 py-2.5 relative rounded group font-medium text-[#ece7ec] inline-block w-full text-center"
+    >
+      <span
+        class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-[#83688D] to-[#6d5774]"
+      ></span>
+      <span
+        class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#83688D] to-[#6d5774]"
+      ></span>
+      <span
+        class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#83688D] to-[#6d5774]"
+      ></span>
+      <span
+        class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#83688D] from-[#6d5774]"
+      ></span>
+      <span class="relative text-text">Save List</span>
+    </a>
+
+    <div *ngIf="savedLists.length > 0" class="mt-8">
+      <h3 class="text-lg font-bold mb-2 text-text">Saved Lists</h3>
+      <div *ngFor="let list of savedLists; let i = index">
+        <div class="bg-gray-200 p-4 rounded-md mb-2">
+          <h4 class="text-lg font-bold mb-1">{{ list.owner }}</h4>
+          <ul>
+            <li
+              *ngFor="let item of list.items"
+              class="flex items-center text-sm"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-4 h-4 mr-2"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.960-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              {{ item }}
+            </li>
+          </ul>
+          <button
+            (click)="deleteList(list.id)"
+            class="px-4 py-2 bg-accent text-white rounded-md mt-2"
+          >
+            Delete List
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

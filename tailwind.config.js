@@ -1,5 +1,10 @@
 module.exports = {
-  content: ["./src/**/*.{html,ts}"],
+  content: [
+    "./src/**/*.html",
+    "./src/**/*.ts",
+    "./src/**/*.css",
+    "./src/app/**/*.ts",
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -24,6 +29,15 @@ module.exports = {
       },
     },
   },
-  plugins: [],
-  mode: "jit",
+  plugins: [
+    require("@fullhuman/postcss-purgecss")({
+      content: [
+        "./src/**/*.html",
+        "./src/**/*.ts",
+        "./src/**/*.css",
+        "./src/app/**/*.ts",
+      ],
+      defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+    }),
+  ],
 };

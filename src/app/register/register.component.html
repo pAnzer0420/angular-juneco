@@ -1,0 +1,109 @@
+<div
+  class="flex justify-center items-center min-h-screen bg-background relative"
+>
+  <svg
+    class="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.dev/svgjs"
+    viewBox="0 0 800 800"
+  >
+    <defs>
+      <radialGradient id="cccircular-grad" r="50%" cx="50%" cy="50%">
+        <stop offset="0%" stop-color="#714f7c" stop-opacity="0.5"></stop>
+        <stop
+          offset="50%"
+          stop-color="hsl(285, 22%, 58%)"
+          stop-opacity="0.5"
+        ></stop>
+        <stop offset="100%" stop-color="#d2abdd" stop-opacity="0.5"></stop>
+      </radialGradient>
+    </defs>
+    <g fill="url(#cccircular-grad)">
+      <circle r="532" cx="400" cy="400" opacity="0.05"></circle>
+      <circle r="504" cx="400" cy="400" opacity="0.1"></circle>
+      <circle r="476" cx="400" cy="400" opacity="0.16"></circle>
+      <circle r="448" cx="400" cy="400" opacity="0.21"></circle>
+      <circle r="420" cx="400" cy="400" opacity="0.26"></circle>
+      <circle r="392" cx="400" cy="400" opacity="0.31"></circle>
+      <circle r="364" cx="400" cy="400" opacity="0.37"></circle>
+      <circle r="336" cx="400" cy="400" opacity="0.42"></circle>
+      <circle r="308" cx="400" cy="400" opacity="0.47"></circle>
+      <circle r="280" cx="400" cy="400" opacity="0.53"></circle>
+      <circle r="252" cx="400" cy="400" opacity="0.58"></circle>
+      <circle r="224" cx="400" cy="400" opacity="0.63"></circle>
+      <circle r="196" cx="400" cy="400" opacity="0.68"></circle>
+      <circle r="168" cx="400" cy="400" opacity="0.74"></circle>
+      <circle r="140" cx="400" cy="400" opacity="0.79"></circle>
+      <circle r="112" cx="400" cy="400" opacity="0.84"></circle>
+      <circle r="84" cx="400" cy="400" opacity="0.89"></circle>
+      <circle r="56" cx="400" cy="400" opacity="0.95"></circle>
+    </g>
+  </svg>
+  <div
+    class="bg-primary/20 rounded-3xl border border-white/20 shadow-white shadow-sm py-20 px-12 max-w-md w-full"
+  >
+    <h2 class="text-2xl font-bold mb-7 text-center text-white">
+      Create Account
+    </h2>
+    <form (ngSubmit)="onRegister()">
+      <div class="mb-4">
+        <input
+          type="text"
+          placeholder="Username"
+          [(ngModel)]="username"
+          name="username"
+          class="border border-gray-700 rounded-md p-2 w-full text-background text-sm bg-gray-300 focus:outline-none focus:border-primary/90"
+        />
+      </div>
+      <div class="mb-4">
+        <input
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password"
+          class="border border-gray-700 rounded-md p-2 w-full text-background text-sm bg-gray-300 focus:outline-none focus:border-primary/90"
+        />
+      </div>
+      <div class="mb-4">
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          class="border border-gray-700 rounded-md p-2 w-full text-background text-sm bg-gray-300 focus:outline-none focus:border-primary/90"
+        />
+      </div>
+      <button
+        type="submit"
+        [disabled]="!isPasswordMatch()"
+        class="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-red-800 rounded-xl group w-full mb-4"
+        [ngClass]="{ 'opacity-50 cursor-not-allowed': !isPasswordMatch() }"
+      >
+        <span
+          class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-red-400 rounded group-hover:-mr-4 group-hover:-mt-4"
+        >
+          <span
+            class="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"
+          ></span>
+        </span>
+        <span
+          class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-700 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"
+        ></span>
+        <span
+          class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white"
+          >Register</span
+        >
+      </button>
+    </form>
+    <p class="text-center text-xs text-gray-400">
+      Already have an account?
+      <a
+        [routerLink]="['/login']"
+        class="text-primary/80 hover:text-primary hover:font-bold"
+        >Log in now</a
+      >
+    </p>
+  </div>
+</div>

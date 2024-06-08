@@ -1,24 +1,11 @@
 import { Component } from '@angular/core';
-import { TodoComponent } from './todo/todo.component'; 
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  template: `<app-todo></app-todo>`, 
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [TodoComponent] 
+  imports: [RouterOutlet],
 })
-export class AppComponent {
-  title = 'angular-test';
-  todoList: string[] = [];
-
-  pushItemToList(item: string): void {
-    if (item) {
-      this.todoList.push(item);
-    }
-  }
-
-  getTodoListLength(): number {
-    return this.todoList.length;
-  }
-}
+export class AppComponent {}

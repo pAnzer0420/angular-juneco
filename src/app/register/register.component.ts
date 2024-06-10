@@ -20,24 +20,23 @@ export class RegisterComponent {
 	confirmPassword = '';
 
 	onRegister() {
-			if (this.isPasswordMatch()) {
-				var data: any = {
-					username: this.username,
-					password: this.password,
-				};
-				console.log(data);
+		if (this.isPasswordMatch()) {
+			var data: any = {
+				username: this.username,
+				password: this.password,
+			};
 
-				this.apiservice.register(data).subscribe((response) => {
-					console.log(response);
-				});
-				console.log('Register attempt');
-			} else {
-				console.log('Passwords do not match');
-			}
+			this.apiservice.register(data).subscribe((response) => {
+				console.log(response);
+			});
+			console.log('Register attempt');
+		} else {
+			console.log('Passwords do not match');
+		}
 	}
 
 	isPasswordMatch(): boolean {
-			// for confirm pass
-			return this.password === this.confirmPassword && this.password.length > 0;
+		// for confirm pass
+		return this.password === this.confirmPassword && this.password.length > 0;
 	}
 }

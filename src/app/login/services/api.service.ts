@@ -8,9 +8,11 @@ import { HttpClient } from '@angular/common/http';
 export class Apiservice {
     constructor(private http: HttpClient) {}
 
-    register = (data: any) => {
+    login = (data: any) => {
+        console.log(`[client]: Sending login request to server with data: ${JSON.stringify(data)}`);
+
         return this.http.post (
-            'http://localhost:3000/user/add', data
+            'http://localhost:3000/user/login', data
         )
     }
 }

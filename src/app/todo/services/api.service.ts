@@ -1,0 +1,34 @@
+import { Injectable } from '@angular/core'; 
+import { HttpClient } from '@angular/common/http'; 
+
+@Injectable({ 
+    providedIn: 'root'
+}) 
+
+export class Apiservice {
+    constructor(private http: HttpClient) {}
+
+    saveList = (data: any) => {
+        console.log(`[client]: Sending list to server with data: ${JSON.stringify(data)}`);
+
+        return this.http.post (
+            'http://localhost:3000/list/save', data
+        )
+    }
+
+    saveTask = (data: any) => {
+        console.log(`[client]: Sending task to server with data: ${JSON.stringify(data)}`);
+
+        return this.http.post (
+            'http://localhost:3000/task/save', data
+        )
+    }
+
+    fetchSavedLists(data: string) {
+        console.log('[client]: Fetching saved lists from server');
+    
+        return this.http.post(
+            'http://localhost:3000/list/all', data
+        );
+    }
+}

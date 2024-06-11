@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Apiservice } from './services/api.service';
 import { GlobalService } from '../global.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-todo',
@@ -21,6 +22,7 @@ export class TodoComponent implements OnInit {
 		private http: HttpClient,
 		private apiservice: Apiservice,
 		private globalService: GlobalService,
+		private Router: Router, // Add Router as a dependency
 	) {}
 
 	ngOnInit() {
@@ -74,12 +76,12 @@ export class TodoComponent implements OnInit {
 
 	deleteList(listId: string) {
 		this.apiservice.deleteList(listId).subscribe(() => {
-			// this.savedLists = this.savedLists.filter(list => list.id !== listId)
 			this.fetchSavedLists();
 		})
 	}
 
 	deleteUser() {
 		this.apiservice.deleteUser(this.globalService.user_id).subscribe(() => {})
+		this.Router.navigate(['/login']);
 	}
 }

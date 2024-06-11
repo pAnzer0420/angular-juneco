@@ -12,7 +12,7 @@ export class Apiservice {
         console.log(`[client]: Sending list to server with data: ${JSON.stringify(data)}`);
 
         return this.http.post (
-            'http://localhost:3000/list/save', data
+            'https://its320-finals-be.onrender.com/list/save', data
         )
     }
 
@@ -20,7 +20,7 @@ export class Apiservice {
         console.log(`[client]: Sending task to server with data: ${JSON.stringify(data)}`);
 
         return this.http.post (
-            'http://localhost:3000/task/save', data
+            'https://its320-finals-be.onrender.com/task/save', data
         )
     }
 
@@ -28,7 +28,7 @@ export class Apiservice {
         console.log('[client]: Fetching saved lists from server');
     
         return this.http.post(
-            'http://localhost:3000/list/all', data
+            'https://its320-finals-be.onrender.com/list/all', data
         );
     }
     
@@ -36,7 +36,7 @@ export class Apiservice {
         console.log(`[client]: Deleting list with id: ${listId}`);
     
         return this.http.delete(
-            `http://localhost:3000/list/delete/${listId}`
+            `https://its320-finals-be.onrender.com/list/delete/${listId}`
         );
     }
 
@@ -44,7 +44,7 @@ export class Apiservice {
         console.log(`[client]: Deleting user with id: ${user_id}`);
     
         return this.http.delete(
-            `http://localhost:3000/user/delete/${user_id}`
+            `https://its320-finals-be.onrender.com/user/delete/${user_id}`
         );
     }
 }

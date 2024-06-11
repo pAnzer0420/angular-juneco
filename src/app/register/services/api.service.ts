@@ -10,7 +10,7 @@ export class Apiservice {
 
     register = (data: any) => {
         return this.http.post (
-            'http://localhost:3000/user/add', data
+            'https://its320-finals-be.onrender.com/user/add', data
         )
     }
 }

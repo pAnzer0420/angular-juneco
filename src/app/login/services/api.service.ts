@@ -12,7 +12,7 @@ export class Apiservice {
         console.log(`[client]: Sending login request to server with data: ${JSON.stringify(data)}`);
 
         return this.http.post (
-            'http://localhost:3000/user/login', data
+            'https://its320-finals-be.onrender.com/user/login', data
         )
     }
 }

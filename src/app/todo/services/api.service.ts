@@ -39,4 +39,12 @@ export class Apiservice {
             `http://localhost:3000/list/delete/${listId}`
         );
     }
+
+    deleteUser(user_id: string) {
+        console.log(`[client]: Deleting user with id: ${user_id}`);
+    
+        return this.http.delete(
+            `http://localhost:3000/user/delete/${user_id}`
+        );
+    }
 }

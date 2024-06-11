@@ -80,6 +80,6 @@ export class TodoComponent implements OnInit {
 	}
 
 	deleteUser() {
-
+		this.apiservice.deleteUser(this.globalService.user_id).subscribe(() => {})
 	}
 }

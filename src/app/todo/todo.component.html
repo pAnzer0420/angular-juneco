@@ -43,7 +43,7 @@
   </svg>
   <div
     class="bg-background/80 rounded-3xl shadow-white shadow-lg py-10 mb-70 px-20 sticky"
-    style="font-family: 'Poppins', sans-serif; height: 90vh"
+    style="font-family: 'Poppins', sans-serif; height: 90vh; overflow-y: scroll;"
   >
     <h2
       class="text-2xl font-bold mb-4 text-center bg-text bg-clip-text text-transparent"
@@ -166,6 +166,26 @@
           </button>
         </div>
       </div>
+
+      <a
+      href="#_"
+      (click)="deleteUser(); $event.preventDefault()"
+      class="px-5 py-2.5 relative rounded group font-medium text-[#ece7ec] inline-block w-full text-center"
+    >
+      <span
+        class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-[#83688D] to-[#6d5774]"
+      ></span>
+      <span
+        class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#83688D] to-[#6d5774]"
+      ></span>
+      <span
+        class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#83688D] to-[#6d5774]"
+      ></span>
+      <span
+        class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#83688D] from-[#6d5774]"
+      ></span>
+      <span class="relative text-text"> DELETE USER </span>
+    </a>
     </div>
   </div>
 </div>

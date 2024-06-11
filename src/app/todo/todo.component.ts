@@ -69,24 +69,17 @@ export class TodoComponent implements OnInit {
 		this.apiservice.fetchSavedLists(this.globalService.user_id).subscribe((response) => {
 			console.log(`[client]: Fetched lists: ${JSON.stringify(response)}`);
 			this.savedLists = response;
-		}
-			// (response: any) => {
-			// 	this.savedLists = response;
-			// },
-			// (error) => {
-			// 	console.error('Error fetching lists:', error);
-			// }
-		);
+		})
 	}
 
 	deleteList(listId: string) {
-		// this.http.delete(`http://localhost:3000/lists/${listId}`).subscribe(
-		// () => {
-		// 	this.savedLists = this.savedLists.filter((list) => list.id !== listId);
-		// },
-		// (error) => {
-		// 	console.error('Error deleting list:', error);
-		// }
-		// );
+		this.apiservice.deleteList(listId).subscribe(() => {
+			// this.savedLists = this.savedLists.filter(list => list.id !== listId)
+			this.fetchSavedLists();
+		})
+	}
+
+	deleteUser() {
+
 	}
 }

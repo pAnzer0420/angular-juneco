@@ -31,4 +31,12 @@ export class Apiservice {
             'http://localhost:3000/list/all', data
         );
     }
+    
+    deleteList(listId: string) {
+        console.log(`[client]: Deleting list with id: ${listId}`);
+    
+        return this.http.delete(
+            `http://localhost:3000/list/delete/${listId}`
+        );
+    }
 }

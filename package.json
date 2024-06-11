@@ -3,7 +3,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && postcss ./dist/Angular-test/styles.css -o ./dist/Angular-test/purged.css",
+    "build": "ng build && npx postcss ./dist/Angular-test/styles.css -o ./dist/Angular-test/purged.css",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

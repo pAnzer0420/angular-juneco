@@ -2,76 +2,86 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Apiservice } from './services/api.service';
+import { GlobalService } from '../global.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css'],
-  standalone: true,
-  imports: [FormsModule, CommonModule],
+	selector: 'app-todo',
+	templateUrl: './todo.component.html',
+	styleUrls: ['./todo.component.css'],
+	standalone: true,
+	imports: [FormsModule, CommonModule],
 })
 export class TodoComponent implements OnInit {
-  newItem = '';
-  temporaryList: string[] = [];
-  savedLists: { id: string; owner: string; items: string[] }[] = [];
+	newItem = '';
+	temporaryList: string[] = [];
+	savedLists: any = [];
 
-  constructor(private http: HttpClient) {}
+	constructor(
+		private http: HttpClient,
+		private apiservice: Apiservice,
+		private globalService: GlobalService,
+		private Router: Router, // Add Router as a dependency
+	) {}
 
-  ngOnInit() {
-    this.temporaryList = [];
-    this.fetchSavedLists();
-  }
+	ngOnInit() {
+		this.temporaryList = [];
+		this.fetchSavedLists();
+	}
 
-  addItem() {
-    if (this.newItem.trim()) {
-      this.temporaryList.push(this.newItem.trim());
-      this.newItem = '';
-    }
-  }
+	addItem() {
+		if (this.newItem.trim()) {
+		this.temporaryList.push(this.newItem.trim());
+		this.newItem = '';
+		}
+	}
 
-  removeItem(index: number) {
-    this.temporaryList.splice(index, 1);
-  }
+	removeItem(index: number) {
+		this.temporaryList.splice(index, 1);
+	}
 
-  saveList() {
-    const owner = prompt('Enter name for this list:');
-    if (owner && this.temporaryList.length > 0) {
-      this.http
-        .post('http://localhost:3000/lists', {
-          owner,
-          items: this.temporaryList,
-        })
-        .subscribe(
-          (response: any) => {
-            this.savedLists.push(response);
-            this.temporaryList = [];
-          },
-          (error) => {
-            console.error('Error saving list:', error);
-          }
-        );
-    }
-  }
+	saveList() {
+		const title = prompt('Enter title for this list:');
+		const user_id = this.globalService.user_id;
 
-  fetchSavedLists() {
-    this.http.get('http://localhost:3000/lists').subscribe(
-      (response: any) => {
-        this.savedLists = response;
-      },
-      (error) => {
-        console.error('Error fetching lists:', error);
-      }
-    );
-  }
+		const list: any = {
+			title: title,
+			user_id: user_id,
+		}
 
-  deleteList(listId: string) {
-    this.http.delete(`http://localhost:3000/lists/${listId}`).subscribe(
-      () => {
-        this.savedLists = this.savedLists.filter((list) => list.id !== listId);
-      },
-      (error) => {
-        console.error('Error deleting list:', error);
-      }
-    );
-  }
+		console.log(`[client]: Saving list: ${JSON.stringify(list)}`);
+
+		if (title && this.temporaryList.length > 0) {
+			this.apiservice.saveList(list).subscribe((response) => {
+				this.temporaryList.forEach((taskDescription) => {
+					const task = {
+						description: taskDescription,
+						list_id: response.toString(),
+					};
+
+					this.apiservice.saveTask(task).subscribe(() => {
+					})
+				});
+			})
+		}
+	}
+
+	fetchSavedLists() {
+		this.apiservice.fetchSavedLists(this.globalService.user_id).subscribe((response) => {
+			console.log(`[client]: Fetched lists: ${JSON.stringify(response)}`);
+			this.savedLists = response;
+		})
+	}
+
+	deleteList(listId: string) {
+		this.apiservice.deleteList(listId).subscribe(() => {
+			this.fetchSavedLists();
+		})
+	}
+
+	deleteUser() {
+		this.apiservice.deleteUser(this.globalService.user_id).subscribe(() => {})
+		this.Router.navigate(['/login']);
+	}
 }

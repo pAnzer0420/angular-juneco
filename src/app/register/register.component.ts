@@ -2,30 +2,41 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Apiservice } from './services/api.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
-  standalone: true,
-  imports: [FormsModule, RouterLink, CommonModule],
+	selector: 'app-register',
+	templateUrl: './register.component.html',
+	styleUrls: ['./register.component.css'],
+	standalone: true,
+	imports: [FormsModule, RouterLink, CommonModule],
 })
+
 export class RegisterComponent {
-  username = '';
-  password = '';
-  confirmPassword = '';
+	constructor(private apiservice: Apiservice) {}
 
-  onRegister() {
-    if (this.isPasswordMatch()) {
-      // funtioanlity for register
-      console.log('Register attempt');
-    } else {
-      console.log('Passwords do not match');
-    }
-  }
+	username = '';
+	password = '';
+	confirmPassword = '';
 
-  isPasswordMatch(): boolean {
-    // for confirm pass
-    return this.password === this.confirmPassword && this.password.length > 0;
-  }
+	onRegister() {
+		if (this.isPasswordMatch()) {
+			var data: any = {
+				username: this.username,
+				password: this.password,
+			};
+
+			this.apiservice.register(data).subscribe((response) => {
+				console.log(response);
+			});
+			console.log('Register attempt');
+		} else {
+			console.log('Passwords do not match');
+		}
+	}
+
+	isPasswordMatch(): boolean {
+		// for confirm pass
+		return this.password === this.confirmPassword && this.password.length > 0;
+	}
 }

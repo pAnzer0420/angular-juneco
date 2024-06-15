@@ -1,26 +1,67 @@
-<!-- hero.component.html -->
-<header class="fixed top-0 left-0 w-full z-50">
+<section class="relative bg-background text-text">
+  <svg
+    class="absolute inset-0 w-full h-full opacity-25"
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.dev/svgjs"
+    viewBox="0 0 800 800"
+  >
+    <defs>
+      <radialGradient id="cccircular-grad" r="50%" cx="50%" cy="50%">
+        <stop offset="0%" stop-color="#714f7c" stop-opacity="0.5"></stop>
+        <stop
+          offset="50%"
+          stop-color="hsl(285, 22%, 58%)"
+          stop-opacity="0.5"
+        ></stop>
+        <stop offset="100%" stop-color="#d2abdd" stop-opacity="0.5"></stop>
+      </radialGradient>
+    </defs>
+    <g fill="url(#cccircular-grad)">
+      <circle r="532" cx="400" cy="400" opacity="0.05"></circle>
+      <circle r="504" cx="400" cy="400" opacity="0.1"></circle>
+      <circle r="476" cx="400" cy="400" opacity="0.16"></circle>
+      <circle r="448" cx="400" cy="400" opacity="0.21"></circle>
+      <circle r="420" cx="400" cy="400" opacity="0.26"></circle>
+      <circle r="392" cx="400" cy="400" opacity="0.31"></circle>
+      <circle r="364" cx="400" cy="400" opacity="0.37"></circle>
+      <circle r="336" cx="400" cy="400" opacity="0.42"></circle>
+      <circle r="308" cx="400" cy="400" opacity="0.47"></circle>
+      <circle r="280" cx="400" cy="400" opacity="0.53"></circle>
+      <circle r="252" cx="400" cy="400" opacity="0.58"></circle>
+      <circle r="224" cx="400" cy="400" opacity="0.63"></circle>
+      <circle r="196" cx="400" cy="400" opacity="0.68"></circle>
+      <circle r="168" cx="400" cy="400" opacity="0.74"></circle>
+      <circle r="140" cx="400" cy="400" opacity="0.79"></circle>
+      <circle r="112" cx="400" cy="400" opacity="0.84"></circle>
+      <circle r="84" cx="400" cy="400" opacity="0.89"></circle>
+      <circle r="56" cx="400" cy="400" opacity="0.95"></circle>
+    </g>
+  </svg>
+
+  <header class="fixed top-0 left-0 w-full z-50">
     <nav class="flex justify-center py-4 bg-background/80 backdrop-blur-md">
       <ul class="flex space-x-8">
         <li>
-          
-            routerLink="/hero"
+          <a
+            [routerLink]="'/hero'"
             routerLinkActive="font-bold text-accent"
             class="text-text font-openSans hover:text-accent transition-colors"
             >Home</a
           >
         </li>
         <li>
-          
-            routerLink="/skills"
+          <a
+            [routerLink]="'/skills'"
             routerLinkActive="font-bold text-accent"
             class="text-text font-openSans hover:text-accent transition-colors"
             >Skills</a
           >
         </li>
         <li>
-          
-            routerLink="/works"
+          <a
+            [routerLink]="'/works'"
             routerLinkActive="font-bold text-accent"
             class="text-text font-openSans hover:text-accent transition-colors"
             >Works</a
@@ -29,46 +70,18 @@
       </ul>
     </nav>
   </header>
-  
+
   <div class="hero-container">
-    <defs>
-        <radialGradient id="cccircular-grad" r="50%" cx="50%" cy="50%">
-          <stop offset="0%" stop-color="#714f7c" stop-opacity="0.5"></stop>
-          <stop
-            offset="50%"
-            stop-color="hsl(285, 22%, 58%)"
-            stop-opacity="0.5"
-          ></stop>
-          <stop offset="100%" stop-color="#d2abdd" stop-opacity="0.5"></stop>
-        </radialGradient>
-      </defs>
-      <g fill="url(#cccircular-grad)">
-        <circle r="532" cx="400" cy="400" opacity="0.05"></circle>
-        <circle r="504" cx="400" cy="400" opacity="0.1"></circle>
-        <circle r="476" cx="400" cy="400" opacity="0.16"></circle>
-        <circle r="448" cx="400" cy="400" opacity="0.21"></circle>
-        <circle r="420" cx="400" cy="400" opacity="0.26"></circle>
-        <circle r="392" cx="400" cy="400" opacity="0.31"></circle>
-        <circle r="364" cx="400" cy="400" opacity="0.37"></circle>
-        <circle r="336" cx="400" cy="400" opacity="0.42"></circle>
-        <circle r="308" cx="400" cy="400" opacity="0.47"></circle>
-        <circle r="280" cx="400" cy="400" opacity="0.53"></circle>
-        <circle r="252" cx="400" cy="400" opacity="0.58"></circle>
-        <circle r="224" cx="400" cy="400" opacity="0.63"></circle>
-        <circle r="196" cx="400" cy="400" opacity="0.68"></circle>
-        <circle r="168" cx="400" cy="400" opacity="0.74"></circle>
-        <circle r="140" cx="400" cy="400" opacity="0.79"></circle>
-        <circle r="112" cx="400" cy="400" opacity="0.84"></circle>
-        <circle r="84" cx="400" cy="400" opacity="0.89"></circle>
-        <circle r="56" cx="400" cy="400" opacity="0.95"></circle>
-      </g>
-    </svg>
-  
     <div class="content">
-      <p class="text-text font-openSans text-4xl mb-4">Hello, I am Juneco</p>
-      <h1 class="text-accent font-spaceGrotesk text-8xl mb-8">Graphic/Web Designer</h1>
+      <p class="text-text font-open-sans text-4xl mb-4">Hello, I am Juneco</p>
+      <h1 class="text-accent font-space-grotesk text-8xl mb-8">
+        Graphic/Web Designer
+      </h1>
       <p class="text-text font-openSans text-xl max-w-2xl mx-auto mb-8">
-        Has a passion for learning and creating new things. Here, you'll find a showcase of my work and projects, as well as a glimpse into my creative process.
+        Has a passion for learning and creating new things. Here, you'll find a
+        showcase of my work and projects, as well as a glimpse into my creative
+        process.
       </p>
     </div>
   </div>
+</section>

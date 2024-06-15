@@ -1,4 +1,33 @@
-<header></header>
+<header class="fixed top-0 left-0 w-full z-50">
+  <nav class="flex justify-center py-8 bg-background/80 backdrop-blur-md">
+    <ul class="flex space-x-10">
+      <li>
+        <a
+          [routerLink]="'/hero'"
+          routerLinkActive="font-bold text-accent"
+          class="text-text font-spaceGrotesk hover:text-accent transition-colors"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="'/skills'"
+          routerLinkActive="font-bold text-accent"
+          class="text-text font-spaceGrotesk hover:text-accent transition-colors"
+          >Skills</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="'/works'"
+          routerLinkActive="font-bold text-accent"
+          class="text-text font-spaceGrotesk hover:text-accent transition-colors"
+          >Works</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>
 
 <main>
   <router-outlet></router-outlet>

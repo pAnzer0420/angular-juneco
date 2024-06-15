@@ -1,4 +1,4 @@
-<section class="relative bg-background text-text">
+<section class="relative bg-background text-white">
   <svg
     class="absolute inset-0 w-full h-full opacity-25"
     xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +11,7 @@
       <radialGradient id="cccircular-grad" r="50%" cx="50%" cy="50%">
         <stop offset="0%" stop-color="#714f7c" stop-opacity="0.5"></stop>
         <stop
-          offset="50%"
+          offset="100%"
           stop-color="hsl(285, 22%, 58%)"
           stop-opacity="0.5"
         ></stop>
@@ -40,48 +40,57 @@
     </g>
   </svg>
 
-  <header class="fixed top-0 left-0 w-full z-50">
-    <nav class="flex justify-center py-4 bg-background/80 backdrop-blur-md">
-      <ul class="flex space-x-8">
-        <li>
-          <a
-            [routerLink]="'/hero'"
-            routerLinkActive="font-bold text-accent"
-            class="text-text font-openSans hover:text-accent transition-colors"
-            >Home</a
-          >
-        </li>
-        <li>
-          <a
-            [routerLink]="'/skills'"
-            routerLinkActive="font-bold text-accent"
-            class="text-text font-openSans hover:text-accent transition-colors"
-            >Skills</a
-          >
-        </li>
-        <li>
-          <a
-            [routerLink]="'/works'"
-            routerLinkActive="font-bold text-accent"
-            class="text-text font-openSans hover:text-accent transition-colors"
-            >Works</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <div
+    class="relative flex flex-col items-center justify-center min-h-screen px-4 py-32 lg:h-screen"
+  >
+    <div class="text-left">
+      <h1 class="text-8xl mb-2 gradient-text">
+        <span class="font-openSans text-3xl text-text">Hello, I Am Juneco</span>
+      </h1>
 
-  <div class="hero-container">
-    <div class="content">
-      <p class="text-text font-open-sans text-4xl mb-4">Hello, I am Juneco</p>
-      <h1 class="text-accent font-space-grotesk text-8xl mb-8">
+      <style>
+        .gradient-text {
+          background: linear-gradient(to right, #ffffff, #d3b8db);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      </style>
+      <h1 class="text-accent font-spaceGrotesk text-8xl mb-8">
         Graphic/Web Designer
       </h1>
-      <p class="text-text font-openSans text-xl max-w-2xl mx-auto mb-8">
+      <p class="text-text font-openSans text-md max-w-90 mx-auto mb-8">
         Has a passion for learning and creating new things. Here, you'll find a
         showcase of my work and projects, as well as a glimpse into my creative
         process.
       </p>
+
+      <div class="mt-10 flex flex-wrap text-left gap-4">
+        <a
+          [routerLink]="['/works']"
+          class="px-8 py-2.5 relative rounded group font-medium text-[#ece7ec] inline-block w-full text-center sm:w-auto"
+        >
+          <span
+            class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-[#83688D] to-[#6d5774]"
+          ></span>
+          <span
+            class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#83688D] to-[#6d5774]"
+          ></span>
+          <span
+            class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#83688D] to-[#6d5774]"
+          ></span>
+          <span
+            class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#83688D] from-[#6d5774]"
+          ></span>
+          <span class="relative font-openSans">About me</span>
+        </a>
+
+        <a
+          class="font-openSans block w-full rounded border border-primary/90 px-12 py-3 text-sm font-medium text-white hover:bg-primary/80 focus:outline-none focus:ring active:bg-primary/80 sm:w-auto"
+          [routerLink]="['/works']"
+        >
+          Previous Works
+        </a>
+      </div>
     </div>
   </div>
 </section>

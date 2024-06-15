@@ -1,10 +1,21 @@
-<div class="page-container">
-  <svg>
+<section class="relative bg-background text-white">
+  <svg
+    class="absolute inset-0 w-full h-full opacity-25"
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.dev/svgjs"
+    viewBox="0 0 800 800"
+  >
     <defs>
       <radialGradient id="cccircular-grad" r="50%" cx="50%" cy="50%">
-        <stop offset="0%" stop-color="#714f7c" stop-opacity="0.5" />
-        <stop offset="50%" stop-color="hsl(285, 22%, 58%)" stop-opacity="0.5" />
-        <stop offset="100%" stop-color="#d2abdd" stop-opacity="0.5" />
+        <stop offset="0%" stop-color="#714f7c" stop-opacity="0.5"></stop>
+        <stop
+          offset="100%"
+          stop-color="hsl(285, 22%, 58%)"
+          stop-opacity="0.5"
+        ></stop>
+        <stop offset="100%" stop-color="#d2abdd" stop-opacity="0.5"></stop>
       </radialGradient>
     </defs>
     <g fill="url(#cccircular-grad)">
@@ -29,8 +40,10 @@
     </g>
   </svg>
 
-  <div class="content">
-    <h2 class="text-secondary font-spaceGrotesk text-5xl mb-12">
+  <div
+    class="content relative flex flex-col items-center justify-center px-4 py-32 lg:h-screen"
+  >
+    <h2 class="text-secondary font-spaceGrotesk text-5xl mb-12 mt-12 z-10">
       UI/UX Designs
     </h2>
 
@@ -38,7 +51,7 @@
       <div class="work-box">
         <img src="assets/artify.png" alt="Artify App" class="mb-4" />
         <h3 class="text-primary font-spaceGrotesk text-2xl mb-2">Artify</h3>
-        <p class="font-openSans text-lg">
+        <p class="font-openSans text-md">
           Artify is a social art app where you can share your creativity with
           the world and connect with other artists. Inspired by DeviantArt and
           Instagram, Artify offers a platform for artists to showcase their work
@@ -49,7 +62,7 @@
       <div class="work-box">
         <img src="assets/Smartcart.png" alt="Smartcart App" class="mb-4" />
         <h3 class="text-primary font-spaceGrotesk text-2xl mb-2">Smart Cart</h3>
-        <p class="font-openSans text-lg">
+        <p class="font-openSans text-md">
           Smartcart is a sneaker-focused shopping app where you can browse and
           purchase the latest sneakers from top brands, as well as connect with
           other sneakerheads in the community. It is the perfect app for
@@ -63,7 +76,7 @@
         <h3 class="text-primary font-spaceGrotesk text-2xl mb-2">
           Panzer Exotics
         </h3>
-        <p class="font-openSans text-lg">
+        <p class="font-openSans text-md">
           Showcases the finest exotic vehicles in the world, from Ferraris and
           Lamborghinis to McLarens and Bugattis. With a wide selection of new
           and pre-owned vehicles to choose from, Panzer Exotics has the perfect
@@ -76,7 +89,7 @@
         <h3 class="text-primary font-spaceGrotesk text-2xl mb-2">
           ChickiNaeNae
         </h3>
-        <p class="font-openSans text-lg">
+        <p class="font-openSans text-md">
           Showcases the finest exotic vehicles in the world, from Ferraris and
           Lamborghinis to McLarens and Bugattis. With a wide selection of new
           and pre-owned vehicles to choose from, Panzer Exotics has the perfect
@@ -85,4 +98,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>
